@@ -28,7 +28,7 @@ jobs:
         run: aws s3 ls
       
       - name: Install dependencies
-        run: npm install -g aws-cdk
+        run: cd cdk | npm install -g aws-cdk
       
       - name: Synth stack
         run: cdk synth
