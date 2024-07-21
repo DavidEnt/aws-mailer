@@ -44,7 +44,9 @@ jobs:
         run: pip install -r requirements.txt
       
       - name: Synth stack
-        run: cdk synth --app="python ${PWD}/cdk/app.py"
+        run: |
+          cd cdk 
+          cdk synth
       
       - name: Deploy stack
         run: cdk deploy --app="python ${PWD}/cdk/app.py" --require-approval never
