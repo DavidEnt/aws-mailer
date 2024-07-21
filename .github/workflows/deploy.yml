@@ -49,4 +49,6 @@ jobs:
           cdk synth
       
       - name: Deploy stack
-        run: cdk deploy --require-approval never
+        run: |
+          cd cdk 
+          cdk deploy --require-approval never
