@@ -26,7 +26,7 @@ class EmailerStack(Stack):
             "Lambda_Function",
             runtime=_lambda.Runtime.PYTHON_3_10,
             code=_lambda.Code.from_asset(
-                "../lambda"
+                "lambda"
             ),  # Points to the lambda directory,
             handler="emailer.handler",  # Points to the file and function in the lambda directory
         )
