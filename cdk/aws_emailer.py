@@ -17,7 +17,7 @@ class EmailerStack(Stack):
         queue = sqs.Queue(
             self, 
             "SQS_Queue",
-            queue_name = "emails-to-send-queue.fifo"
+            queue_name = "emails-to-send-out"
         )
 
         # Define the Lambda function resource
