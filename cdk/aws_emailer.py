@@ -14,7 +14,11 @@ class EmailerStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # Define the SQS queue resource
-        queue = sqs.Queue(self, "SQS_Queue")
+        queue = sqs.Queue(
+            self, 
+            "SQS_Queue",
+            queue_name = "emails-to-send-queue.fifo"
+        )
 
         # Define the Lambda function resource
         lambda_function = _lambda.Function(
