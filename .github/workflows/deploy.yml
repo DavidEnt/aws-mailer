@@ -34,9 +34,6 @@ jobs:
           role-session-name: github-action-role
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Verification step
-        run: aws s3 ls
-
       - name: Install dependencies
         run: npm install -g aws-cdk
 
