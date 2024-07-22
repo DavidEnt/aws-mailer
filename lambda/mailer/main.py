@@ -13,7 +13,7 @@ from .models.models import ExecutionSummary
 from .utils.parse_event import parse_event
 from .utils.send_email import send_email
 
-def handle_email_request(client: SESClient, event: dict[str, Any]) -> ExecutionSummary: # type: ignore
+def handle_email_request(client, event: dict[str, Any]) -> ExecutionSummary:
     """
     Handle the parsing of the Lambda event and sending of an e-mail via SES.
 
