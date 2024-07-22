@@ -7,13 +7,13 @@ Notes:
 import os
 import boto3
 from typing import Any
-from mypy_boto3_ses import SESClient
+#from mypy_boto3_ses import SESClient
 
 from .models.models import ExecutionSummary
 from .utils.parse_event import parse_event
 from .utils.send_email import send_email
 
-def handle_email_request(client: SESClient, event: dict[str, Any]) -> ExecutionSummary:
+def handle_email_request(client: SESClient, event: dict[str, Any]) -> ExecutionSummary: # type: ignore
     """
     Handle the parsing of the Lambda event and sending of an e-mail via SES.
 
@@ -55,6 +55,6 @@ def handler(event: list[dict[str, Any]], context: dict[str, Any]) -> list[Execut
     region = os.environ.get("AWS_REGION", "eu-west-1")
     client = boto3.client("ses", region_name=region)
 
-    results = [handle_email_request(client, e) for e in event]
+    results = [handle_email_request(client, e["body"]) for e in event]
 
     return results

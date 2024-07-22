@@ -1,7 +1,7 @@
-from mypy_boto3_ses import SESClient
+#from mypy_boto3_ses import SESClient
 from ..models.models import SendEmailRequest
 
-def send_email(client: SESClient, request: SendEmailRequest) -> str:
+def send_email(client: SESClient, request: SendEmailRequest) -> str: # type: ignore
     """Send e-mail using SES.
 
     :param client: An instantiated Boto3 SES client.
@@ -10,7 +10,7 @@ def send_email(client: SESClient, request: SendEmailRequest) -> str:
     """
     
     response = client.send_email(
-        Source=request.sender,
+        Source="david.enthoven.python@gmail.com",
         Destination={
             "BccAddresses": request.bcc_addresses,
             "CcAddresses": request.cc_addresses,
