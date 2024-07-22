@@ -11,10 +11,10 @@ class SendEmailRequest:
     """
 
     subject: str
-    sender: str
     to_addresses: list[str]
     cc_addresses: list[str] = field(default_factory=list)
     bcc_addresses: list[str] = field(default_factory=list)
+    sender: str = "david.enthoven.python@gmail.com"
     body_html: str = ""
     body_txt: str = ""
 
