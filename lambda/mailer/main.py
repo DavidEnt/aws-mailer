@@ -6,6 +6,7 @@ Notes:
 """
 import os
 import boto3
+import json
 from typing import Any
 #from mypy_boto3_ses import SESClient
 
@@ -55,6 +56,6 @@ def handler(event: list[dict[str, Any]], context: dict[str, Any]) -> list[Execut
     region = os.environ.get("AWS_REGION", "eu-west-1")
     client = boto3.client("ses", region_name=region)
 
-    results = [handle_email_request(client, e["body"]) for e in event]
+    results = [handle_email_request(client, json.loads(e["body"])) for e in event]
 
     return results

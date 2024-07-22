@@ -8,6 +8,7 @@ class EventValidationError(Exception):
 
 def parse_event(event: dict[str, Any]) -> SendEmailRequest:
     """Parse the incoming request."""
+    print('start parse event')
     request = SendEmailRequest(**event)
     recipients = request.to_addresses + request.cc_addresses + request.bcc_addresses
 
