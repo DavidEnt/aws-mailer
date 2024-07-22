@@ -26,9 +26,9 @@ class EmailerStack(Stack):
             "Lambda_Function",
             runtime=_lambda.Runtime.PYTHON_3_10,
             code=_lambda.Code.from_asset(
-                "lambda/mailer"
+                "lambda"
             ),  # Points to the lambda directory,
-            handler="main.handler",  # Points to the file and function in the lambda directory
+            handler="mailer.main.handler",  # Points to the file and function in the lambda directory
         )
 
         # Add policy to the lambda function to enable sending emails.
