@@ -18,10 +18,10 @@ def send_email(client, request: SendEmailRequest) -> str:
         },
         Message={
             "Body": {
-                "Html": {
-                    "Charset": "UTF-8",
-                    "Data": request.body_html,
-                },
+                # "Html": {
+                #     "Charset": "UTF-8",
+                #     "Data": request.body_html,
+                # },
                 "Text": {
                     "Charset": "UTF-8",
                     "Data": request.body_txt,
