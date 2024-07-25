@@ -13,6 +13,8 @@ aws-cdk-lib = "^2.147.2"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
 black = "^24.4.2"
+mailer = { path = "./lambda/", develop = true }
+pytest-cov = "^5.0.0"
 
 [build-system]
 requires = ["poetry-core"]
